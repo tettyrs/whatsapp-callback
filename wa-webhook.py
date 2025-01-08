@@ -1,10 +1,13 @@
 from fastapi import FastAPI, Request, Query
 from fastapi.responses import PlainTextResponse
 from datetime import datetime
-from dotenv import load_dotenv()
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
 
 app = FastAPI()
-load_dotenv()
 
 # Verify Token yang harus sesuai dengan token yang digunakan oleh pengirim request
 EXPECTED_VERIFY_TOKEN = os.getenv("TOKEN_CONNECT")

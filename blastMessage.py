@@ -1,3 +1,4 @@
+import http
 from fastapi import requests
 from configs import Config
 
@@ -15,7 +16,8 @@ async def send_message(recipient, message):
         "text": {"body": message}
     }
 
-    response = requests.post(url, json=payload, headers=headers)
+    async with http.AsyncClient() as client:
+        response = await client.post(url, json=payload, headers=headers)
 
     if response.status_code == 200:
         print("Pesan berhasil dikirim:", response.json())

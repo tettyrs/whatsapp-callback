@@ -33,7 +33,7 @@ async def verify_webhook(
         return PlainTextResponse("Forbidden", status_code=403)
 
 
-@app.post("/webhook")
+@app.post("/webhooks")
 async def receive_message(request: Request):
     data = await request.json()
     print("Data diterima:", json.dumps(data, indent=4))

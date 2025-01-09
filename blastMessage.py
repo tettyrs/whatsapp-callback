@@ -1,5 +1,5 @@
-import http
-from fastapi import requests
+import httpx
+# from fastapi import requests
 from configs import Config
 
 CONFIG = Config()
@@ -16,7 +16,7 @@ async def send_message(recipient, message):
         "text": {"body": message}
     }
 
-    async with http.AsyncClient() as client:
+    async with httpx.AsyncClient() as client:
         response = await client.post(url, json=payload, headers=headers)
 
     if response.status_code == 200:

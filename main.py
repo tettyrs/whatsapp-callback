@@ -1,6 +1,6 @@
 import json, json, os
 from fastapi import FastAPI, Request, Query
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import JSONResponse, PlainTextResponse
 from datetime import datetime
 from dotenv import load_dotenv
 from blastMessage import send_message
@@ -54,11 +54,11 @@ async def receive_message(request: Request):
             print(f"Pesan dari {sender}: {text}")
 
             # Kirim balasan otomatis
-            await send_message(sender, "Terima kasih telah menghubungi kami! Pesan Anda telah diterima.")
+            await send_message(sender)
 
-        return {"status": "EVENT_RECEIVED"}, 200
+        return JSONResponse({"status": "EVENT_RECEIVED"}, 200)
 
-    return {"status": "Not a valid message"}, 404
+    return JSONResponse({"status": "Not a valid message"}, 404)
 
 if __name__ == '__main__':
     import uvicorn

@@ -4,20 +4,19 @@ from configs import Config
 
 CONFIG = Config()
 
-async def send_message(recipient, message):
-    url = f"https://graph.facebook.com/v21.0/{CONFIG.PHONE_NUMBER_ID}/messages"
+async def send_message(recipient):
+    url = CONFIG.WHATSAPP_BLAST_ENDPOINT
     headers = {
-        "Authorization": f"Bearer {CONFIG.ACCESS_TOKEN}",
         "Content-Type": "application/json"
     }
     payload = {
-        "messaging_product": "whatsapp",
-        "to": recipient,
-        "text": {"body": message}
+	    "phone_number":recipient,
+        "template_name":CONFIG.WHATSAPP_TEMPLATE_NAME
     }
 
     async with httpx.AsyncClient() as client:
         response = await client.post(url, json=payload, headers=headers)
+        print(response.text)
 
     if response.status_code == 200:
         print("Pesan berhasil dikirim:", response.json())

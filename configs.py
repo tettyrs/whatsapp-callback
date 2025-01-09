@@ -5,8 +5,5 @@ load_dotenv()
 
 class Config():
    EXPECTED_VERIFY_TOKEN = os.getenv("TOKEN_CONNECT")
-   PHONE_NUMBER_ID = os.getenv("ACCOUNT_PHONE_NUMBER_ID")
-   ACCESS_TOKEN = os.getenv("META_ACCESS_TOKEN")
-   
-
-
+   WHATSAPP_BLAST_ENDPOINT = os.getenv("BLAST_ENDPOINT")
+   WHATSAPP_TEMPLATE_NAME = os.getenv("TEMPLATE_NAME")

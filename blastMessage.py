@@ -5,7 +5,7 @@ from configs import Config
 CONFIG = Config()
 
 async def send_message(recipient, message):
-    url = f"https://graph.facebook.com/v21.0/{CONFIG.PHONE_NUMBER_ID}/messages"
+    url = f"https://graph.facebook.com/v17.0/{CONFIG.PHONE_NUMBER_ID}/messages"
     headers = {
         "Authorization": f"Bearer {CONFIG.ACCESS_TOKEN}",
         "Content-Type": "application/json"

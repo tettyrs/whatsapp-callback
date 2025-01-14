@@ -11,7 +11,8 @@ async def send_message(recipient):
     }
     payload = {
 	    "phone_number":recipient,
-        "template_name":CONFIG.WHATSAPP_TEMPLATE_NAME
+        "template_name":CONFIG.WHATSAPP_TEMPLATE_NAME,
+        "param1":CONFIG.PARAM1
     }
 
     async with httpx.AsyncClient() as client:

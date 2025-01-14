@@ -15,6 +15,8 @@ async def send_message(recipient):
         "param1":CONFIG.PARAM1
     }
 
+    print(payload)
+
     async with httpx.AsyncClient() as client:
         response = await client.post(url, json=payload, headers=headers)
         print(response.text)

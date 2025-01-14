@@ -22,7 +22,7 @@ Data diterima: {
                         "messages": [
                             {
                                 "from": "628xxx",
-                                "id": "wamid.HBgNNjI4Nzg0ODUxMDg3MRUCABIYFjNFQjBFNDcxMzA5MUY3MTlCODAzMzUA",
+                                "id": "wamid.xxx",
                                 "timestamp": "1736748550",
                                 "text": {
                                     "body": "p"

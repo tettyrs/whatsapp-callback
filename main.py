@@ -49,7 +49,10 @@ async def receive_message(request: Request):
             # Ambil detail pesan
             message = messages[0]
             sender = message["from"]  # Nomor pengirim
-            text = message["text"]["body"]  # Isi pesan
+            if 'button' in str(messages):
+                text = message.get("button").get("text") # Isi pesan
+            else:
+                text = message.get("text").get("body")  # Isi pesan
 
             print(f"Pesan dari {sender}: {text}")
 
